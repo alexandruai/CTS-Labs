@@ -1,0 +1,15 @@
+PortContainer:
+eticheta= C
+, tipContainer= [Mic_10mc, Mediu_25mc, Mare_50mc, Jumbo_100mc]
+, nrContainere= [0, 1, 5, 8]
+;
+PortContainer:
+eticheta= M
+, tipContainer= [Mic_10mc, Mediu_25mc, Mare_50mc, Jumbo_100mc]
+, nrContainere= [4, 2, 8, 10]
+;
+PortContainer:
+eticheta= G
+, tipContainer= [Mic_10mc, Mediu_25mc, Mare_50mc, Jumbo_100mc]
+, nrContainere= [10, 2, 0, 5]
+;
