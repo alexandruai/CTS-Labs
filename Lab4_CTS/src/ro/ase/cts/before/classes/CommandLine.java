@@ -1,9 +1,7 @@
-package ro.ase.cts.before.gui;
+package ro.ase.cts.before.classes;
 
 
 import ro.ase.cts.before.logger.Logger;
-
-import java.io.IOException;
 
 public class CommandLine {
         public CommandLine(){
