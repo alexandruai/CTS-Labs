@@ -1,0 +1,6 @@
+Sun Apr 11 15:04:20 EDT 2021 command line created
+Sun Apr 11 15:04:20 EDT 2021 GUI created
+Sun Apr 11 15:04:43 EDT 2021 command line created
+Sun Apr 11 15:04:43 EDT 2021 GUI created
+Sun Apr 11 15:04:43 EDT 2021 Message from NewMain
+Sun Apr 11 15:04:43 EDT 2021 Another message from NewMain
