@@ -1,11 +1,15 @@
 package ro.ase.acs.tests;
 
 import org.junit.Before;
+import org.junit.Ignore;
 import org.junit.Test;
 import static org.junit.Assert.*;
 
+import org.junit.experimental.categories.Category;
 import ro.ase.acs.exceptions.NotEnoughFounds;
 import ro.ase.acs.models.BankAccount;
+import ro.ase.acs.tests.categories.CorrectCategory;
+import ro.ase.acs.tests.categories.RightBicepCategory;
 
 import java.util.ArrayList;
 import java.util.List;
@@ -21,6 +25,7 @@ public class BankAccountTests {
 
     //CORRECT
     @Test
+    @Category(CorrectCategory.class)
     public void testConformance() throws NotEnoughFounds {
         BankAccount bankAccount = new BankAccount();
         bankAccount.addTransaction(300.331f);
@@ -32,6 +37,7 @@ public class BankAccountTests {
     }
 
     @Test
+    @Category(CorrectCategory.class)
     public void testOrdering() throws NotEnoughFounds {
         bankAccount.addTransaction(200f);
         bankAccount.addTransaction(200f);
@@ -44,6 +50,7 @@ public class BankAccountTests {
     //Aici vrem intentionat sa vedem soldul prost
     //Daca unul crapa se termina functia, asa ca ii bag pe toti in try/ catch
     @Test
+    @Category(CorrectCategory.class)
     public void testOrdering2() {
         try {
             bankAccount.addTransaction(-100f);
@@ -66,6 +73,7 @@ public class BankAccountTests {
     }
 
     @Test
+    @Category(CorrectCategory.class)
     public void testRange() throws NotEnoughFounds {
         bankAccount.addTransaction(1900f);
         bankAccount.addTransaction(-1800f);
@@ -83,6 +91,7 @@ public class BankAccountTests {
     }
 
     @Test
+    @Category(CorrectCategory.class)
     public void testReferance(){
         List<Float> transactions = new ArrayList<>();
         transactions.add(300f);
@@ -96,12 +105,14 @@ public class BankAccountTests {
     }
 
     @Test
+    @Category(CorrectCategory.class)
     public void testCardinality() {
        float comparable = bankAccount.getBalance();
        assertEquals("Balance is not correct",0f, comparable, 0.001f);
     }
 
     @Test
+    @Category(CorrectCategory.class)
     public void testCardinality2() throws NotEnoughFounds {
         bankAccount.addTransaction(100f);
         float comparable = bankAccount.getBalance();
@@ -109,6 +120,7 @@ public class BankAccountTests {
     }
 
     @Test
+    @Category(CorrectCategory.class)
     public void testCardinality3() throws NotEnoughFounds {
      for(int i = 0; i < 500; i++){
          bankAccount.addTransaction(100f);
@@ -122,6 +134,7 @@ public class BankAccountTests {
     }
 
     @Test(timeout = 1000)
+    @Category(CorrectCategory.class)
     public void testTimeFrame() throws NotEnoughFounds {
         for(int i = 0; i < 100; i++){
             bankAccount.addTransaction(100f);
@@ -143,6 +156,7 @@ public class BankAccountTests {
 
     // BICEP
     @Test
+    @Category(RightBicepCategory.class)
     public void testBoundary1() throws NotEnoughFounds {
         bankAccount.addTransaction(2000f);
         bankAccount.addTransaction(-2000f);
@@ -152,6 +166,7 @@ public class BankAccountTests {
     }
 
     @Test
+    @Category(RightBicepCategory.class)
     public void testBoundary2() throws NotEnoughFounds {
         bankAccount.addTransaction(2000f);
         bankAccount.addTransaction(2000f);
@@ -163,6 +178,7 @@ public class BankAccountTests {
     }
 
     @Test
+    @Category(RightBicepCategory.class)
     public void testInverse() throws NotEnoughFounds{
         bankAccount.addTransaction(100.55f);
         bankAccount.addTransaction(50.33f);
@@ -180,6 +196,7 @@ public class BankAccountTests {
     }
 
     @Test
+    @Category(RightBicepCategory.class)
     public void testCrossCheck() throws NotEnoughFounds {
         bankAccount.addTransaction(100.55f);
         bankAccount.addTransaction(50.33f);
@@ -194,12 +211,15 @@ public class BankAccountTests {
     }
 
     @Test(expected = NotEnoughFounds.class)
+    @Category(RightBicepCategory.class)
     public void testErrorCondition() throws NotEnoughFounds{
         bankAccount.addTransaction(300f);
         bankAccount.addTransaction(-350f);
     }
 
     @Test(timeout = 10)
+    @Category(RightBicepCategory.class)
+    @Ignore
     public void testPerformance() throws NotEnoughFounds {
         bankAccount.addTransaction(777f);
 

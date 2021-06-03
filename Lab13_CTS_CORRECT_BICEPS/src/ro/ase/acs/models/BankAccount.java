@@ -9,6 +9,7 @@ public class BankAccount {
     String owner;
     String IBan;
     List<Float> transactions;
+    IAtm atm;
 
     public BankAccount() {
         this.transactions = new ArrayList<>();
@@ -36,6 +37,17 @@ public class BankAccount {
 
     public void setTransactions(List<Float> transactions) {
         this.transactions = transactions;
+    }
+
+    public void setAtm(IAtm atm) {
+        this.atm = atm;
+    }
+
+    public void useAtm() throws NotEnoughFounds {
+        if(atm != null){
+            float value = atm.transaction();
+            addTransaction(value);
+        }
     }
 
     public void addTransaction(float value) throws NotEnoughFounds {
